@@ -4,7 +4,7 @@ export default function Logo () {
     return (
          <div className="flex items-center space-x-8">
             <Link href="/" className="text-xl font-bold text-blue-600 hover:text-blue-700">
-            &Lambda;SP&Lambda;CT <br /> <span><small>group</small></span>
+            &Lambda;SP&Lambda;CT<span className="text-black"><small>group</small></span>
             </Link>
         </div>
     )
