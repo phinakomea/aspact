@@ -1,9 +1,10 @@
+import Dashboard from "@/components/dashboard/Main";
 
 
 export default function Home() {
   return (
     <div>
-      <h1>Landing Page</h1>
+      <Dashboard />
     </div>
   );
 }
