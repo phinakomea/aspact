@@ -1,4 +1,4 @@
-import { PoliticalAd, ApiResponse, AnalyticsData, FilterOptions } from '../../types';
+import { PoliticalAd, ApiResponse, AnalyticsData, FilterOptions } from '@/types';
 import { MOCK_ADS, MOCK_ANALYTICS } from './mockData';
 
 interface ApiConfig {

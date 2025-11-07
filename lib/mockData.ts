@@ -1,4 +1,4 @@
-import { PoliticalAd, AnalyticsData } from '../../types';
+import { PoliticalAd, AnalyticsData } from '@/types';
 
 export const MOCK_ADS: PoliticalAd[] = [
   {
