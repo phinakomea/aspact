@@ -1,16 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AnalyticsData } from '@/types'; // Remove Advertiser and CandidateSpending imports
+import { AnalyticsData } from '@/types';
 import { adAPI } from '@/lib/api';
 import AnalyticsCharts from '@/components/dashboard/AnalyticsCharts';
-import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
 import PlatformStats from '@/components/dashboard/PlatformStats';
+import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
+
+// Define TimeRange type at the top level of the file
+type AnalyticsTimeRange = '7d' | '30d' | '90d' | '1y';
 
 export default function AnalyticsPage() {
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | '1y'>('30d');
+  const [timeRange, setTimeRange] = useState<AnalyticsTimeRange>('30d');
 
   useEffect(() => {
     loadAnalytics();
@@ -28,10 +31,11 @@ export default function AnalyticsPage() {
     }
   };
 
-   const handleTimeRangeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimeRange(e.target.value as TimeRange);
+  const handleTimeRangeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setTimeRange(value as AnalyticsTimeRange);
   };
-  
+
   if (loading || !analytics) {
     return <LoadingSpinner />;
   }
