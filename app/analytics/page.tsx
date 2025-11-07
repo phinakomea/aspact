@@ -1,12 +1,11 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AnalyticsData, Advertiser, CandidateSpending } from '../../types';
+import { AnalyticsData } from '@/types'; // Remove Advertiser and CandidateSpending imports
 import { adAPI } from '@/lib/api';
 import AnalyticsCharts from '@/components/dashboard/AnalyticsCharts';
-import PlatformStats from '@/components/dashboard/PlatformStats';
 import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
+import PlatformStats from '@/components/dashboard/PlatformStats';
 
 export default function AnalyticsPage() {
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
@@ -20,7 +19,6 @@ export default function AnalyticsPage() {
   const loadAnalytics = async () => {
     setLoading(true);
     try {
-      // FIX: Remove the empty object parameter since getAnalytics doesn't accept any
       const data = await adAPI.getAnalytics();
       setAnalytics(data);
     } catch (error) {
@@ -47,10 +45,11 @@ export default function AnalyticsPage() {
               <p className="text-gray-600">
                 Comprehensive insights into political advertising spending and performance
               </p>
+            </div>
             <div className="mt-4 md:mt-0">
               <select
                 value={timeRange}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTimeRange(e.target.value as '7d' | '30d' | '90d' | '1y')}
+                onChange={(e) => setTimeRange(e.target.value as any)}
                 className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
                 <option value="7d">Last 7 days</option>
@@ -125,7 +124,7 @@ export default function AnalyticsPage() {
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Advertisers</h3>
             <div className="space-y-3">
-              {analytics.topAdvertisers.map((advertiser: Advertiser, index: number) => (
+              {analytics.topAdvertisers.map((advertiser, index) => (
                 <div key={advertiser.advertiser} className="flex items-center justify-between">
                   <div className="flex items-center">
                     <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-sm font-medium text-gray-600">
@@ -151,28 +150,27 @@ export default function AnalyticsPage() {
           {/* Candidate Spending */}
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Candidate Spending</h3>
-              <div className="space-y-4">
-                {analytics.candidateSpending.map((candidate: CandidateSpending) => (
-                  <div key={candidate.candidate}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-gray-900">
-                        {candidate.candidate}
-                      </span>
-                      <span className="text-sm text-gray-600">
-                        ${candidate.amount.toLocaleString()}
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-blue-600 h-2 rounded-full"
-                        style={{
-                          width: `${(candidate.amount / Math.max(...analytics.candidateSpending.map((c: CandidateSpending) => c.amount))) * 100}%`
-                        }}
-                      ></div>
-                    </div>
+            <div className="space-y-4">
+              {analytics.candidateSpending.map((candidate) => (
+                <div key={candidate.candidate}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm font-medium text-gray-900">
+                      {candidate.candidate}
+                    </span>
+                    <span className="text-sm text-gray-600">
+                      ${candidate.amount.toLocaleString()}
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-blue-600 h-2 rounded-full"
+                      style={{
+                        width: `${(candidate.amount / Math.max(...analytics.candidateSpending.map(c => c.amount))) * 100}%`
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

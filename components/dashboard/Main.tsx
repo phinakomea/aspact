@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import SearchFilters from '@/components/dashboard/SearchFilters';
 import AdGrid from '@/components/dashboard/AdGrid';
 import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
-import { PoliticalAd, FilterOptions } from '../../../types';
+import { PoliticalAd, FilterOptions } from '../../types/index';
 import { adAPI } from '@/lib/api';
 
 export default function Dashboard() {
