@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { AnalyticsData, FilterOptions } from '../../../types';
-import { adAPI } from '../../lib/api';
+import { AnalyticsData } from '@/types';
+import { adAPI } from '@/lib/api';
 import AnalyticsCharts from '@/components/dashboard/AnalyticsCharts';
 import PlatformStats from '@/components/dashboard/PlatformStats';
 import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
@@ -50,7 +50,7 @@ export default function AnalyticsPage() {
             <div className="mt-4 md:mt-0">
               <select
                 value={timeRange}
-                onChange={(e) => setTimeRange(e.target.value as any)}
+                onChange={(e) => setTimeRange(e.target.value as TimeRangeType)}
                 className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
                 <option value="7d">Last 7 days</option>
