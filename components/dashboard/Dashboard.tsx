@@ -1,19 +1,16 @@
 'use client';
 
-import React from 'react';
-import { useState, useEffect } from 'react';
-
-import SearchFilters from './SearchFilters';
-import AdGrid from './AdGrid';
-import LoadingSpinner from './LoadingSpinner';
+import { useState, useEffect, useCallback } from 'react';
+import SearchFilters from '@/components/dashboard/SearchFilters';
+import AdGrid from '@/components/dashboard/AdGrid';
+import LoadingSpinner from '@/components/dashboard/LoadingSpinner';
 import { PoliticalAd, FilterOptions } from '@/types';
 import { adAPI } from '@/lib/api';
 
 export default function Dashboard() {
-
-    const [ads, setAds] = useState<PoliticalAd[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [filters, setFilters] = useState<FilterOptions>({
+  const [ads, setAds] = useState<PoliticalAd[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState<FilterOptions>({
     adType: 'all',
     searchQuery: '',
     candidateQuery: '',
@@ -26,11 +23,7 @@ export default function Dashboard() {
     maxAmount: 1000000
   });
 
-  useEffect(() => {
-    loadAds();
-  }, [filters]);
-
-  const loadAds = async () => {
+  const loadAds = useCallback(async () => {
     setLoading(true);
     try {
       const response = await adAPI.getAds(filters);
@@ -40,7 +33,11 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    loadAds();
+  }, [loadAds]);
 
   const handleFilterChange = (newFilters: Partial<FilterOptions>) => {
     setFilters(prev => ({ ...prev, ...newFilters }));
@@ -48,7 +45,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">

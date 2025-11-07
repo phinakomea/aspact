@@ -31,7 +31,7 @@ export default function Navlinks() {
           href={link.href}
           className={`font-medium transition-colors duration-200 ${
             isActive(link.href)
-              ? 'text-blue-600 border-b-2 border-blue-600'
+              ? 'text-blue-900 border-b-2 border-blue-600'
               : 'text-gray-700 hover:text-blue-600'
           }`}
         >

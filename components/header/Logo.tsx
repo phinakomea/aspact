@@ -2,10 +2,11 @@ import Link from "next/link";
 
 export default function Logo () {
     return (
-         <div className="flex items-center space-x-8">
-            <Link href="/" className="text-xl font-bold text-blue-600 hover:text-blue-700">
-            &Lambda;SP&Lambda;CT<span className="text-black"><small>group</small></span>
+         
+            <Link href="/" className="flex flex-col items-start">
+            <span className="text-xl font-bold text-blue-900 hover:text-blue-700">&Lambda;SP&Lambda;CT</span>
+            <span className="text-xs">AI Super PAC Ad Tracker - GROUP</span>
             </Link>
-        </div>
+       
     )
 }
