@@ -192,7 +192,6 @@ async function ArticlesList({
 
                 <Link
                   href={article.webUrl}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-4 text-blue-600 hover:underline"
                 >

@@ -42,23 +42,22 @@ export default function AnalyticsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="top-0 left-0 bg-blue-900 h-[120px] md:h-[70px] md:py-2 text-white shadow text-start md:text-center mb-6">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div className='text-start'>
+              <h1 className="text-2xl font-bold">
                 Analytics Dashboard
               </h1>
-              <p className="text-gray-600">
+              <small className="text-stone-100">
                 Comprehensive insights into political advertising spending and performance
-              </p>
+              </small>
             </div>
-            <div className="mt-4 md:mt-0">
+            <div className="md:mt-0">
               <select
                 value={timeRange}
                 onChange={handleTimeRangeChange}
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="rounded-sm focus:outline-none focus:ring-1 focus:ring-stone-100 "
               >
                 <option value="7d">Last 7 days</option>
                 <option value="30d">Last 30 days</option>
@@ -68,7 +67,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
         </div>
-
+      <main className="container mx-auto px-4 py-8">
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border p-6">

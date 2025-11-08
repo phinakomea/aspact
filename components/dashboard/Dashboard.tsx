@@ -45,17 +45,18 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            AI Super PAC Ads Transparency Center
-          </h1>
-          <p className="text-gray-600">
-            Track political advertising across major digital platforms
-          </p>
+        {/* Header Section */}
+        <div className="top-0 left-0 bg-blue-900 md:h-[70px] md:py-2 text-white shadow text-start md:text-center mb-6">
+          <div className="container mx-auto px-4 flex flex-col items-center justify-center">       
+              <h1 className="text-2xl font-bold">
+                AI Super PAC Ads Transparency Center
+              </h1>
+              <small>
+                Track political advertising across major digital platforms
+              </small>
+          </div>
         </div>
-
+      <main className="container mx-auto px-4 py-8">
         <SearchFilters 
           filters={filters} 
           onFilterChange={handleFilterChange} 

@@ -76,17 +76,16 @@ export default function LibraryPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <main className="container mx-auto px-4 py-8">
         {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="top-0 left-0 bg-blue-900 h-[120px] md:h-[70px] md:py-2 text-white shadow text-start md:text-center mb-6">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div className='text-start'>
+              <h1 className="text-2xl font-bold">
                 Political Ad Library
               </h1>
-              <p className="text-gray-600">
+              <small className="text-stone-100">
                 Explore and analyze political advertisements across digital platforms
-              </p>
+              </small>
             </div>
             <div className="flex items-center space-x-4 mt-4 md:mt-0">
               <div className="flex bg-white border border-gray-300 rounded-md p-1">
@@ -120,7 +119,7 @@ export default function LibraryPage() {
             </div>
           </div>
         </div>
-
+        <main className="container mx-auto px-4 py-8">
         {/* Stats Summary */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-white rounded-lg shadow-sm border p-4">

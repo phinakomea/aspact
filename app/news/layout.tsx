@@ -14,12 +14,6 @@ export default function NewsLayout({
       <header className="bg-blue-900 text-white shadow">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-center">
-            {/* 
-            <Link href="/news" className="text-2xl font-bold">
-              All News Point
-            </Link>
-            */}
-            
             <nav className="hidden md:flex items-center gap-6">
               <Link
                 href="/news"

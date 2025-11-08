@@ -51,7 +51,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
             onChange={(e) => onFilterChange({ 
               adType: e.target.value as 'all' | 'political' 
             })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Ads</option>
             <option value="political">Political Ads</option>
@@ -68,7 +68,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
             placeholder="Enter advertiser name..."
             value={filters.searchQuery}
             onChange={(e) => onFilterChange({ searchQuery: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
@@ -82,7 +82,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
             placeholder="Enter candidate name..."
             value={filters.candidateQuery}
             onChange={(e) => onFilterChange({ candidateQuery: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
           <select
             value={filters.platform}
             onChange={(e) => onFilterChange({ platform: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">All Platforms</option>
             <option value="facebook">Facebook</option>
@@ -132,7 +132,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
             <select
               value={filters.format}
               onChange={(e) => onFilterChange({ format: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">All Formats</option>
               <option value="video">Video</option>
@@ -151,7 +151,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
               onChange={(e) => onFilterChange({ 
                 amountSpentSort: e.target.value as 'low-high' | 'high-low' | '' 
               })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Default</option>
               <option value="low-high">Low to High</option>
@@ -169,7 +169,7 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
               onChange={(e) => onFilterChange({ 
                 impressionsSort: e.target.value as 'low-high' | 'high-low' | '' 
               })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Default</option>
               <option value="low-high">Low to High</option>
@@ -179,18 +179,18 @@ export default function SearchFilters({ filters, onFilterChange }: SearchFilters
 
           {/* Date Range */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
               Time Frame
             </label>
             <div className="flex space-x-2">
               <input
                 type="date"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-1 py-1 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onChange={(e) => handleTimeFrameStartChange(e.target.value)}
               />
               <input
                 type="date"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-1 py-1 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onChange={(e) => handleTimeFrameEndChange(e.target.value)}
               />
             </div>
